@@ -1,0 +1,56 @@
+<app-adminHearder></app-adminHearder>
+
+<div class="card mb-3">
+  <div class="card-header">
+    <i class="fa fa-table"></i> board - add
+  </div>
+  <div class="card-body">
+    <div class="table-responsive">
+      <form (ngSubmit)="saveBoard()" #boardForm="ngForm">
+        <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+          <tbody>
+            <tr>
+              <th>
+                <p>board-code</p>
+              </th>
+              <td>
+                <div>
+                  <select (change)="codeChange($event.target.value)">
+                    <option value="">Choose a code</option>
+                    <option *ngFor="let list of seqCode_list" [ngValue]="list">{{list._id}}</option>
+                  </select>
+                </div>
+                <div>
+                  full-sequence-code : {{seqCode}}{{seqValue}}
+                </div>
+              </td>
+            </tr>
+            <tr>
+              <th>
+                <p>board-title</p>
+              </th>
+              <td>
+                <input type="text" [(ngModel)]="board_add.b_title" name="b_title" required/>
+              </td>
+            </tr>
+            <tr>
+              <th>
+                <p>del_yn</p>
+              </th>
+              <td>
+                <input type="radio" name="del_yn" value="y" [(ngModel)]="board_add.del_yn"  required/>yes
+                <input type="radio" name="del_yn" value="n" [(ngModel)]="board_add.del_yn"  required/>no
+              </td>
+            </tr>
+            <tr>
+              <th colspan="2">
+                <button type="button" class="btn btn-warning" style="float: right" (click)="cancelBtn()">cancel</button>
+                <button type="submit" class="btn btn-success" style="float: right; margin-right:5px" [disabled]="!boardForm.form.valid">add</button>
+              </th>
+            </tr>
+          </tbody>
+        </table>
+      </form>
+    </div>
+  </div>
+</div>

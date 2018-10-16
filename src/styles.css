@@ -1,0 +1,4 @@
+/* You can add global styles to this file, and also import other style files */
+@import './bootstrap/style/bootstrap.min.css';
+@import './bootstrap/style/bootstrap-grid.min.css';
+@import './bootstrap/style/bootstrap-reboot.min.css';

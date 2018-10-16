@@ -1,0 +1,11 @@
+.newLine{
+    white-space: pre-line;
+}
+
+.sort-left{
+  float: left;
+}
+
+.sort-right{
+  float: right;
+}

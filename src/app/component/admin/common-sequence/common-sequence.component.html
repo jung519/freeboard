@@ -1,0 +1,43 @@
+<app-adminHearder></app-adminHearder>
+
+
+<div class="card mb-3">
+    <div class="card-header">
+        <i class="fa fa-table"></i> common-sequence
+        <button type="button" class="btn btn-primary" style="float: right" [routerLink]="['/sequenceAdd']">add</button>
+    </div>
+    <div class="card-body">
+        <div class="table-responsive">
+            <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                <thead>
+                    <tr>
+                        <th>sequence-code</th>
+                        <th>code-name</th>
+                        <th>etc</th>
+                        <th>sequence</th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let list of sequence_list">
+                        <td>
+                            {{ list._id }}
+                        </td>
+                        <td>
+                            {{ list.code_name }}
+                        </td>
+                        <td>
+                            {{ list.etc }}
+                        </td>
+                        <td>
+                            {{ list.sequence_value }}
+                        </td>
+                        <td>
+                            <button type="button" class="btn btn-danger" style="float: right" (click)="seqDelete(list._id)">delete</button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,29 @@
+<div class="card mb-3">
+  <div class="card-header">
+    <i class="fa fa-table"></i> {{ board_subject.b_title }} - write
+  </div>
+  <div class="card-body">
+    <div class="table-responsive">
+      <form (ngSubmit)="saveBoard()" #boardWriteForm="ngForm">
+        <div>
+          <p>
+            <input type="text" class="form-control" [(ngModel)]="board_write.title" name="title" placeholder="title" required>
+          </p>
+        </div>
+        <div>
+          <textarea rows="15" placeholder="content" class="form-control" [(ngModel)]="board_write.content" name="content" required></textarea>
+        </div>
+        <div>
+          <p>
+            <input type="text" class="form-control" [(ngModel)]="board_write.id_code" name="id_code" placeholder="id" required>
+            <input type="password" class="form-control" [(ngModel)]="board_write.password" name="password" placeholder="password" required>
+          </p>
+        </div>
+        <div class="sort-right">
+          <button type="submit" class="btn btn-success" [disabled]="!boardWriteForm.form.valid">save</button>
+          <button type="button" class="btn btn-warning" [routerLink]="['/board_list',board_write.b_code]">back to list</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

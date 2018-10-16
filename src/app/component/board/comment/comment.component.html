@@ -1,0 +1,24 @@
+<div class="card mb-3">
+  <form #commentForm="ngForm">
+    <div>
+      <textarea placeholder="comment" class="form-control" name="commentContent" [(ngModel)]="comment_add.commentContent" required></textarea>
+    </div>
+    <div>
+      <p>
+        <input type="text" name="comment_id_code" placeholder="id" [(ngModel)]="comment_add.comment_id_code" class="form-control" required>
+        <input type="password" name="comment_password" placeholder="password" [(ngModel)]="comment_add.comment_password" class="form-control" required>
+      </p>
+    </div>
+    <div>
+      <button type="button" (click)="saveComment()" class="btn btn-success sort-right" [disabled]="!commentForm.form.valid">save</button>
+    </div>
+  </form>
+  <!-- comment list -->
+ <div class="card-body" *ngIf="comment_list">
+    <p class="card-text small" *ngFor="let list of comment_list | paginate: { itemsPerPage: 5, currentPage: p }; let i = index ">
+      [{{list.comment_id_code}}]{{list.commentContent}}
+      <a (click)="commentDelete(list._id, i)">[del]</a><input type="password" id="inputCommentPassword_{{i}}" placeholder="input password">
+    </p>
+    <pagination-controls (pageChange)="p = $event"></pagination-controls>
+  </div>
+</div>

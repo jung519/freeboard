@@ -1,0 +1,37 @@
+<div class="card mb-3">
+  <div class="card-header">
+    <i class="fa fa-table"></i> {{ board_subject.b_title }}
+  </div>
+  <div class="card-body">
+    <div class="table-responsive">
+      <div class="form-control">
+        <table class="table table-bordered dataTable">
+          <tr>
+            <td colspan="2"><strong>{{board_detail.title}}</strong></td>
+          </tr>
+          <tr>
+            <td>{{ regist_date | date:"yyyy.MM.dd HH:mm a" }}</td>
+            <td>counter:{{board_detail.counter}}</td>
+          </tr>
+        </table>
+        <div class="form-control">
+          <p style="height: 300px;" class="newLine">{{ board_detail.content}}</p>
+        </div>
+      </div>
+
+      <div class="dataTables_length">
+        <form #editForm="ngForm">
+          <button type="button" class="btn btn-warning sort-left" [routerLink]="['/board_list',board_detail.b_code]">back to list</button>
+          <div class="sort-right">
+            <button type="button" class="btn btn-danger" (click)="boardDelete(board_detail._id);" [disabled]="!editForm.form.valid">delete</button>
+            <button type="button" class="btn btn-success" (click)="boardEdit(board_detail._id)" [disabled]="!editForm.form.valid">edit</button>
+            <input type="password" name="inputPassword" [(ngModel)]="inputPassword" placeholder="password" required/>
+          </div>
+        </form>
+      </div>
+
+    </div>
+  </div> 
+</div>
+
+<app-comment [target_id]="out_id"></app-comment>

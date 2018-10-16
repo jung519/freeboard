@@ -1,0 +1,39 @@
+<app-adminHearder></app-adminHearder>
+
+<div class="card mb-3">
+  <div class="card-header">
+    <i class="fa fa-table"></i> admin list
+    <button type="button" class="btn btn-primary" style="float: right" [routerLink]="['/boardAdd']">add</button>
+  </div>
+  <div class="card-body">
+    <div class="table-responsive">
+      <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+        <thead>
+          <tr>
+            <th>Title</th>
+            <th>code</th>
+            <th>del_yn</th>
+            <th></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let list of board_list">
+            <td>
+              {{ list.b_title }}
+            </td>
+            <td>
+              {{ list.b_code }}
+            </td>
+            <td>
+              {{ list.del_yn }}
+            </td>
+            <td>
+              <button type="button" class="btn btn-danger" style="float: right" (click)="deleteBtn(list._id,list.b_code)">delete</button>
+              <button type="button" class="btn btn-success" style="float: right; margin-right:5px" [routerLink]="['/boardEdit',list._id]">edit</button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

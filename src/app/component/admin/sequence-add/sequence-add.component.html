@@ -1,0 +1,47 @@
+<app-adminHearder></app-adminHearder>
+
+<div class="card mb-3">
+  <div class="card-header">
+    <i class="fa fa-table"></i> sequence - add
+  </div>
+  <div class="card-body">
+    <div class="table-responsive">
+      <form (ngSubmit)="saveSequence()" #seqForm="ngForm">
+        <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+          <tbody>
+            <tr>
+              <th>
+                <p>sequence-code</p>
+              </th>
+              <td>
+                <input type="text" name="_id" [(ngModel)]="seq_add._id" required/>
+              </td>
+            </tr>
+            <tr>
+              <th>
+                <p>code-name</p>
+              </th>
+              <td>
+                <input type="text" name="code_name" [(ngModel)]="seq_add.code_name" required/>
+              </td>
+            </tr>
+            <tr>
+              <th>
+                <p>etc</p>
+              </th>
+              <td>
+                <input type="text" name="etc" [(ngModel)]="seq_add.etc" required/>
+              </td>
+            </tr>
+            <tr>
+              <th colspan="2">
+                <button type="button" class="btn btn-warning" style="float: right" (click)="cancelBtn()">cancel</button>
+                <button type="submit" class="btn btn-success" style="float: right; margin-right:5px" [disabled]="!seqForm.form.valid">add</button>
+              </th>
+            </tr>
+          </tbody>
+        </table>
+      </form>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,23 @@
+<div class="card mb-3">
+  <div class="card-header">
+    <i class="fa fa-table"></i> board list
+  </div>
+  <div class="card-body">
+    <div class="table-responsive">
+      <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+        <thead>
+          <tr>
+            <th>Board - Title</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let list of boards">
+            <td>
+              <a [routerLink]="['/board_list',list.b_code]">{{ list.b_title }}</a>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

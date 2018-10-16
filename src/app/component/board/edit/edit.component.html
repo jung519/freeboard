@@ -1,0 +1,29 @@
+<div class="card mb-3">
+  <div class="card-header">
+    <i class="fa fa-table"></i> {{ board_subject.b_title }} - edit
+  </div>
+  <div class="card-body">
+    <div class="table-responsive">
+      <form (ngSubmit)="editBoard()" #boardEditForm="ngForm">
+        <div>
+          <p>
+            <input type="text" class="form-control" [(ngModel)]="board_edit.title" name="title" placeholder="title" required>
+          </p>
+        </div>
+        <div>
+          <textarea rows="15" placeholder="content" class="form-control" [(ngModel)]="board_edit.content" name="content" required></textarea>
+        </div>
+        <div>
+          <p>
+            <input type="text" class="form-control" [(ngModel)]="board_edit.id_code" name="id_code" placeholder="id" required>
+            <input type="password" class="form-control" [(ngModel)]="board_edit.password" name="password" placeholder="password" required>
+          </p>
+        </div>
+        <div>
+          <button type="submit" class="btn btn-success" [disabled]="!boardEditForm.form.valid">edit</button>
+          <button type="button" class="btn btn-warning" [routerLink]="['/board_list',board_edit.b_code]">back to list</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

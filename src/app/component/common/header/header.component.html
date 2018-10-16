@@ -1,0 +1,14 @@
+<nav class="navbar navbar-dark bg-dark fixed-top" id="mainNav">
+  <a class="navbar-brand" href="/">freeBoard</a>
+  <div class="card-body">
+    <div *ngIf="sessionInfo; else notSession">
+      <a>{{sessionInfo.name}}</a>
+      <a (click)="doLogout();">logout</a>
+      <button type="button" class="btn" [routerLink]="['/admin']">admin</button>
+    </div>
+    <ng-template #notSession>
+      <a [routerLink]="['/login']">로그인</a>
+      <a [routerLink]="['/join']">회원가입</a>
+    </ng-template>
+  </div>
+</nav>
